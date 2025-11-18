@@ -3,11 +3,11 @@ FROM maven:3.9.6-eclipse-temurin-17 AS build
 WORKDIR /app
 
 # Copy pom.xml first to download dependencies
-COPY Backend/pom.xml .
+COPY FullStack-Backend/pom.xml .
 RUN mvn dependency:go-offline
 
 # Copy the rest of the backend project
-COPY Backend/. .
+COPY FullStack-Backend/. .
 
 # Build the Spring Boot application
 RUN mvn clean package -DskipTests
